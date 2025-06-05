@@ -8,4 +8,3 @@ Funkcjonalności:
 4. Statystyka wygranych parametrów.
 5. Zapis/odczyt stanu gry.
 6. Jedna zaproponowane przez grupę.
-7. 
