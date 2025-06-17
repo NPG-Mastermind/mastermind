@@ -7,4 +7,4 @@ Funkcjonalności:
 3. Ustawienie poziomu trudności.
 4. Statystyka wygranych parametrów.
 5. Zapis/odczyt stanu gry.
-6. Jedna zaproponowane przez grupę.
+6. Jedna zaproponowane przez grupę - tryb na dwóch graczy.
