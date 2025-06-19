@@ -10,8 +10,8 @@ os.makedirs(SAVE_DIR, exist_ok=True)
 def load_game(filename: str = "save1.csv") -> dict:
     filepath = os.path.join(SAVE_DIR, filename)
     try:
-        with open(filepath, mode="r", newline="") as f:
-            reader = csv.DictReader(f)
+        with open(filepath, mode="r", newline="") as file:
+            reader = csv.DictReader(file)
             for row in reader:
                 code = list(map(int, row["code"].split(",")))
                 guesses = [list(map(int, g.split("."))) for g in row["guesses"].split(";") if g]
@@ -25,8 +25,8 @@ def load_game(filename: str = "save1.csv") -> dict:
 def save_game(state: dict, filename: str = "save1.csv"):
     os.makedirs(SAVE_DIR, exist_ok=True)
     filepath = os.path.join(SAVE_DIR,filename)
-    with open(filepath, mode="w",newline="") as f:
-        writer = csv.writer(f)
+    with open(filepath, mode="w",newline="") as file:
+        writer = csv.writer(file)
         writer.writerow(["code","guesses","max_attempts"])
         writer.writerow([
             ",".join(map(str,state.get("code",[]))),
@@ -47,8 +47,8 @@ def delete_save(filename: str):
         print(f"Plik {filename} został usunięty.")
     except FileNotFoundError:
         print(f"Nie znaleziono pliku: {filename}")
-    except Exception as e:
-        print(f"Błąd podczas usuwania pliku: {e}")
+    except Exception as err:
+        print(f"Błąd podczas usuwania pliku: {err}")
 
 
 def generate_new_save_filename() -> str:
@@ -56,8 +56,8 @@ def generate_new_save_filename() -> str:
         os.makedirs(SAVE_DIR)
     existing = list_saves()
     numbers = [
-        int(f[4:-4]) for f in existing
-        if f.startswith("save") and f.endswith(".csv") and f[4:-4].isdigit()
+        int(f[4:-4]) for file_name in existing
+        if file_name.startswith("save") and file_name.endswith(".csv") and f[4:-4].isdigit()
     ]
     next_number = max(numbers) + 1 if numbers else 1
     return f"save{next_number}.csv"
