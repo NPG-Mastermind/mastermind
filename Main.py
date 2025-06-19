@@ -3,8 +3,16 @@ import random
 Colors = ['Red', 'Green', 'White', 'Yellow', 'Orange', 'Pink']
 
 
-# def JakaDlugosc(n):
-#    ...
+def JakaDlugosc(n):
+    while True:
+        try:
+            length = int(input("Podaj długośc kodu"))
+            if length > 0:
+                return length
+            else:
+                print("Podaj właściwą długość kodu")
+        except ValueError:
+            print("Zła wartość")
 
 #placeholder wyboru dlugosci kodu
 Length = 4
