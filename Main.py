@@ -35,4 +35,7 @@ def CheckGuess(secret, guess):
 
     return black_pegs, white_pegs    
 
-
+def Validate(guess):
+    if len(guess) != Length:
+        return False
+    return all(color in Colors for color in guess)
