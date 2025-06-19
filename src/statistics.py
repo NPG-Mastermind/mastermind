@@ -16,8 +16,8 @@ def load_stats():
     if not os.path.exists(STATS_FILE):
         return default_stats
     try:
-        with open(STATS_FILE, mode="r", newline="") as f:
-            reader = csv.DictReader(f)
+        with open(STATS_FILE, mode="r", newline="") as plik:
+            reader = csv.DictReader(plik)
             for row in reader:
                 return {
                     "games_played": int(row["games_played"]),
