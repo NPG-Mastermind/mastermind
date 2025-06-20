@@ -29,12 +29,25 @@ def load_stats():
         return default_stats
 
 
-def save_stats():
-    pass
+def save_stats(data):
+    os.makedirs(os.path.dirname(STATS_FILE), exist_ok=True)
+    with open(STATS_FILE, mode="w", newline="") as plik:
+        writer = csv.writer(plik)
+        writer.writerow(["games_played", "games_won", "total_guesses", "average_guesses"])
+        writer.writerow([data["games_played"], data["games_won"], data["total_guesses"],])
 
 
-def update_stats():
-    pass
+def update_stats(won,guess_count):
+    data=load_stats()
+    data["total_guesses"]=data["total_guesses"]+guess_count
+    data["games_played"]+=1
+    if won:#sprawdza czy jest wygrana, TRUE OR FALSE
+        data["games_won"]+=1
+    if data["games_played"]>0:
+        data["average_guesses"]=data["average_guesses"]/data["games_played"]
+    else:
+        data["average_guesses"]=0.0
+    save_stats(data)
 
 
 def show_stats():
@@ -44,5 +57,4 @@ def show_stats():
     print(f"Wygrane gry: {data['games_won']}")
     print(f"Średnia liczba prób: {data['average_guesses']}")
     print(f"Próby ogólnie: {data['total_guesses']}")
-    print("\==================STATS==================|")
-
+    print("|==================STATS==================|")
