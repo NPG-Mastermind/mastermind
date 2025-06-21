@@ -1,3 +1,4 @@
+import time
 from text_interface import show_main_menu
 from user_guess import player_guesses_code
 
@@ -27,6 +28,7 @@ def main():
 
         elif choice.lower() == "q":
             print("Zamykanie gry. Do zobaczenia!")
+            time.sleep(5)
             break
         else:
             print("Nieprawidłowy wybór. Spróbuj ponownie.\n")
