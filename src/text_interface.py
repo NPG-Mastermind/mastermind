@@ -10,10 +10,16 @@ def show_main_menu():
 
 def show_feedback(black, white, tries_left):
     	show_pegs(black, white)
-    	print("Czarne (trafione miejsce i liczba):", black)
-    	print("Białe (trafiona liczba, złe miejsce):", white)
+    	print("Czarne (trafione miejsce i kolor):", black)
+    	print("Białe (trafiony kolor, złe miejsce):", white)
     	print("Pozostało prób:", tries_left)
     	print("------------------------")
 
 def show_pegs(black, white):
     	print("Wskazówki:", "○" * black + "●" * white)
+
+def show_win():
+	print("Gratulacje! Odgadłeś kod!")
+
+def show_loss(code):
+	print("Przegrałeś. Prawidłowy kod to:",''.join(str(x) for x in code))
