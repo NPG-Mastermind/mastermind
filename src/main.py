@@ -1,6 +1,7 @@
 import time
 from text_interface import show_main_menu
 from user_guess import player_guesses_code
+from two_players import player_vs_player
 
 def main():
     while True:
@@ -18,8 +19,7 @@ def main():
 
         elif choice == "3":
             print("\n[Tryb 3: Tryb dwóch graczy]\n")
-
-            #dodać dwóch graczy
+            player_vs_player()
 
         elif choice == "4":
             print("\n[Tryb 4: Wczytywanie gry]\n")
