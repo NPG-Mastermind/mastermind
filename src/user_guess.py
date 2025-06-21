@@ -34,7 +34,7 @@ def player_guesses_code():
         black, white = CheckGuess(secret_code, guess)
         show_feedback(black, white, tries - (i + 1))
 
-        if black == Length:
+        if black == length:
             update_stats(True,i+1)
 
         if black == LENGTH:
