@@ -1,4 +1,4 @@
-from Main import GenerateCode, CheckGuess, Length
+from game_logic import GenerateCode, CheckGuess, Length
 from text_interface import show_feedback, show_win, show_loss
 
 def player_guesses_code():
