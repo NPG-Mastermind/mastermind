@@ -6,6 +6,8 @@ def show_main_menu():
 	print("2 - Komputer zgaduje")
 	print("3 - Tryb dwóch graczy")
 	print("4 - Wczytaj grę")
+	print("5 - Pokaz statystyki")
+	print("6 - Usun zapis")
 
 
 def show_feedback(black, white, tries_left):

@@ -1,12 +1,15 @@
 import time
 from text_interface import show_main_menu
 from user_guess import player_guesses_code
+from save import load_game
+from save import delete_save
+from statistics import show_stats
 
 def main():
     while True:
         show_main_menu()
         print()
-        choice = input("Wybierz tryb gry (1-4 lub q aby zakończyć): ").strip()
+        choice = input("Wybierz tryb gry (1-6 lub q aby zakończyć): ").strip()
 
         if choice == "1":
             print("\n[Tryb 1: Gra z komputerem]\n")
@@ -23,11 +26,19 @@ def main():
 
         elif choice == "4":
             print("\n[Tryb 4: Wczytywanie gry]\n")
+            file_name = input("Podaj nazwe zapisu (np. save1.csv):")
+            load_game(file_name)
 
-            #dodać wczytywanie
+        elif choice == "5":
+            show_stats()
+
+        elif choice == "6":
+            file_name_to_delet = input("Podaj nazwe zapisu do usuniecia (np. save1.csv):")
+            delete_save(file_name_to_delet)
 
         elif choice.lower() == "q":
             print("Zamykanie gry. Do zobaczenia!")
+
             time.sleep(5)
             break
         else:

@@ -1,6 +1,7 @@
 import time
 from game_logic import GenerateCode, CheckGuess, GetLength, MaxNumberOfAttempts, NumberOfColors, Colors, Length
 from text_interface import show_feedback, show_win, show_loss
+from statistics import update_stats
 
 def player_guesses_code():
     print("Rozpoczynasz grę! Komputer ustawił tajny kod z kolorów.")
@@ -34,10 +35,12 @@ def player_guesses_code():
         show_feedback(black, white, tries - (i + 1))
 
         if black == Length:
+            update_stats(True,i+1)
             show_win()
             time.sleep(5)
             break
 
     else:
+        update_stats(False,tries)
         show_loss(secret_code)
         time.sleep(5)
