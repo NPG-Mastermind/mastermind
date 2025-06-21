@@ -17,3 +17,9 @@ def show_feedback(black, white, tries_left):
 
 def show_pegs(black, white):
     	print("Wskazówki:", "○" * black + "●" * white)
+
+def show_win():
+	print("Gratulacje! Odgadłeś kod!")
+
+def show_loss(code):
+	print("Przegrałeś. Prawidłowy kod to:",''.join(str(x) for x in code))
