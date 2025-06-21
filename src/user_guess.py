@@ -1,6 +1,7 @@
 import time
 from game_logic import GenerateCode, CheckGuess, SetLength, SetMaxNumberOfAttempts, NumberOfColors, NUMBERS, LENGTH
 from text_interface import show_feedback, show_win, show_loss
+from statistics import update_stats
 
 def player_guesses_code():
     length = SetLength()
@@ -33,11 +34,15 @@ def player_guesses_code():
         black, white = CheckGuess(secret_code, guess)
         show_feedback(black, white, tries - (i + 1))
 
+        if black == Length:
+            update_stats(True,i+1)
+
         if black == LENGTH:
             show_win()
             time.sleep(5)
             break
 
     else:
+        update_stats(False,tries)
         show_loss(secret_code)
         time.sleep(5)

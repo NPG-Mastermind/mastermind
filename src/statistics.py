@@ -52,9 +52,9 @@ def update_stats(won,guess_count):
 
 def show_stats():
     data = load_stats()
-    print("|==================STATS==================|")
+    print("|==================STATYSTYKI==================|")
     print(f"Rozegrane gry: {data['games_played']}")
     print(f"Wygrane gry: {data['games_won']}")
     print(f"Średnia liczba prób: {data['average_guesses']}")
     print(f"Próby ogólnie: {data['total_guesses']}")
-    print("|==================STATS==================|")
+    print("|==================STATYSTYKI==================|")
