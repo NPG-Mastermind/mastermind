@@ -1,10 +1,7 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 import csv
 import os
 
-SAVE_DIR = "data/saves/"
+SAVE_DIR = "../data/saves/"
 os.makedirs(SAVE_DIR, exist_ok=True)
 
 def load_game(filename: str = "save1.csv") -> dict:
@@ -30,8 +27,8 @@ def save_game(state: dict, filename: str = "save1.csv"):
         writer.writerow(["code","guesses","max_attempts"])
         writer.writerow([
             ",".join(map(str,state.get("code",[]))),
-            ";".join([".".join(map(str,guess)) for guess in state.get("guesses",[])]),
-            state.get("max_attempts",0)
+            ",".join([".".join(map(str,guess)) for guess in state.get("guesses",[])]),
+            state.get("max_attempts",5)
         ])
     print(f"Game saved to: {format(filepath)}")
 
@@ -56,8 +53,8 @@ def generate_new_save_filename() -> str:
         os.makedirs(SAVE_DIR)
     existing = list_saves()
     numbers = [
-        int(f[4:-4]) for file_name in existing
-        if file_name.startswith("save") and file_name.endswith(".csv") and f[4:-4].isdigit()
+        int(file_name[4:-4]) for file_name in existing
+        if file_name.startswith("save") and file_name.endswith(".csv") and file_name[4:-4].isdigit()
     ]
     next_number = max(numbers) + 1 if numbers else 1
     return f"save{next_number}.csv"
