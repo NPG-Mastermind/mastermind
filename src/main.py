@@ -5,6 +5,7 @@ from save import load_game
 from save import delete_save
 from statistics import show_stats
 from two_players import player_vs_player
+from komputer_zgaduje import computer_guessing_game
 
 def main():
     while True:
@@ -17,8 +18,7 @@ def main():
             player_guesses_code()
         elif choice == "2":
             print("\n[Tryb 2: Komputer zgaduje]\n")
-
-            #dodać komputer zgaduje
+            computer_guessing_game()
 
         elif choice == "3":
             print("\n[Tryb 3: Tryb dwóch graczy]\n")
