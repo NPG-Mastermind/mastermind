@@ -11,11 +11,20 @@ def main():
             print("\n[Tryb 1: Gra z komputerem]\n")
             player_guesses_code()
         elif choice == "2":
-            print("\n[Tryb 2: Tryb dwóch graczy]\n")
+            print("\n[Tryb 2: Komputer zgaduje]\n")
+
+            #dodać komputer zgaduje
+
         elif choice == "3":
-            print("\n[Tryb 3: Komputer zgaduje]\n")
+            print("\n[Tryb 3: Tryb dwóch graczy]\n")
+
+            #dodać dwóch graczy
+
         elif choice == "4":
             print("\n[Tryb 4: Wczytywanie gry]\n")
+
+            #dodać wczytywanie
+
         elif choice.lower() == "q":
             print("Zamykanie gry. Do zobaczenia!")
             break
