@@ -37,18 +37,17 @@ def computer_guessing_game():
             print(f"\n Komputer odgadł kombinację w {attempts} próbach: {guess}")
             return
         else:
-            # Filtrowanie możliwych kombinacji na podstawie oceny użytkownika
             all_possibilities = [
                 p for p in all_possibilities if simulate_feedback(p, guess) == (black, white)
             ]
 
     print("\n Komputer nie odgadł kombinacji w 10 próbach lub nie ma już możliwych kombinacji.")
 
-# Pomocnicza funkcja – symuluje ocenę (czarne i białe piny)
+
 def simulate_feedback(secret, guess):
     black = sum(s == g for s, g in zip(secret, guess))
     white = sum(min(secret.count(n), guess.count(n)) for n in set(guess)) - black
     return black, white
 
-if __name__ == "__main__":
-    computer_guessing_game()
+#if __name__ == "__main__":
+    #computer_guessing_game()
