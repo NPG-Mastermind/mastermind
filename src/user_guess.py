@@ -1,7 +1,7 @@
 import time
 from game_logic import GenerateCode, CheckGuess, SetLength, SetMaxNumberOfAttempts, NumberOfColors, NUMBERS, LENGTH
 from text_interface import show_feedback, show_win, show_loss
-from statistics import update_stats
+from stats import update_stats
 
 def player_guesses_code():
     length = SetLength()
