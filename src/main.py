@@ -3,7 +3,7 @@ from text_interface import show_main_menu
 from user_guess import player_guesses_code
 from save import load_game
 from save import delete_save
-from statistics import show_stats
+from stats import show_stats
 from two_players import player_vs_player
 from komputer_zgaduje import computer_guessing_game
 
