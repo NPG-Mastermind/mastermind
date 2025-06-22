@@ -26,11 +26,21 @@ def main():
 
         elif choice == "4":
             print("\n[Tryb 4: Wczytywanie gry]\n")
-            file_name = input("Podaj nazwe zapisu (np. save1.csv):")
-            load_game(file_name)
+            file_name = input("Podaj nazwę zapisu (np. save1.csv): ").strip()
+
+            if file_name and file_name.endswith(".csv"):
+                state = load_game(file_name)
+                if state:
+                    player_guesses_code(state)
+                else:
+                    print("Nie udało się wczytać gry.")
+            else:
+                print("Nieprawidłowa nazwa pliku.")
+
 
         elif choice == "5":
             show_stats()
+            time.sleep(5)
 
         elif choice == "6":
             file_name_to_delet = input("Podaj nazwe zapisu do usuniecia (np. save1.csv):")

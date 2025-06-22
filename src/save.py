@@ -10,11 +10,18 @@ def load_game(filename: str = "save1.csv") -> dict:
         with open(filepath, mode="r", newline="") as file:
             reader = csv.DictReader(file)
             for row in reader:
-                code = list(map(int, row["code"].split(",")))
-                guesses = [list(map(int, g.split("."))) for g in row["guesses"].split(";") if g]
-                max_attempts = int(row["max_attempts"])
-                print(f"Loaded the game from: {filename}")
-                return {"code": code, "guesses": guesses, "max_attempts": max_attempts}
+                try:
+                    code = list(map(int, row["code"].split(",")))
+                    guesses= []
+                    for g in row["guesses"].split(";"):
+                        if g:
+                            guesses.append(list(map(int, g.split("."))))
+                    max_attempts = int(row["max_attempts"])
+                    print(f"Loaded the game from: {filename}")
+                    return {"code": code, "guesses": guesses, "max_attempts": max_attempts}
+                except (ValueError, KeyError) as e:
+                    print(f"Invalid format: {e}")
+                    return {}
     except FileNotFoundError:
         print("File not found")
         return {}
