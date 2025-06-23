@@ -68,7 +68,7 @@ def player_guesses_code(loaded_state=None):
             show_win()
             time.sleep(5)
             return
-        else:
-            update_stats(False, tries)
-            show_loss(secret_code)
-            time.sleep(5)
+    else:
+        update_stats(False, tries)
+        show_loss(secret_code)
+        time.sleep(5)
